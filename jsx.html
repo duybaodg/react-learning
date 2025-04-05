@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!--
+    JSX => Javascript XML
+    1. Luôn dùng React.createElement()? Vấn đề?
+    2. JSX
+    3. JSX không phải là HTML, 
+        Có cần Javascript, Babel để dùng JSX
+    4. JSX và React-DOM
+    Babel: thư viện dùng để phân tích cú pháp và chuyển đổi JSX thành javascript
+
+            <ul>
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul>
+
+    
+    -->
+    <div id="root"></div>
+    <script type="text/babel">
+        const reactCourse = 'ReactJS F8';
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Responsive web design'
+            },
+            {
+                name: 'ReactJS'
+            }
+        ]
+
+        const ul = <ul>
+            {
+                courses.map(course => 
+                <li>{course.name}</li>
+                )
+            }
+        </ul>
+        ReactDOM.render(ul, document.getElementById('root'))
+
+    </script>
+</body>
+</html>
