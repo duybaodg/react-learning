@@ -37,15 +37,49 @@
 
     <div id="root"></div>
     <script type="text/babel">
+        const Form = {
+            Input() {
+                return <input />
+            },
+            Checkbox() {
+                return <input type="checkbox" />
+            }
+        }
+        function Button({ title, href, onClick }) {
+            let Component = 'button'
+            const props = {}
+            if (href) {
+                Component = 'a'
+                props.href = href
+            }
+            if (onClick) {
+                props.onClick = onClick
+            }
+            console.log(props)
+            return (
+                <Component {...props}>{title}</Component>
+            )
+        }
 
         function App() {
+            let firstAccess = true;
+            const type = 'Checkbox';
+            console.log(Form[type])
+            const Component = Form[type];
             return (
                 <div id="wrapper">
+                    {firstAccess && <h1>Welcome to my house</h1>}
                     <button
                         onClick={(event) => console.log(event.target)}
                     >
                         Click me!!!
                     </button>
+                    <Form.Input />
+                    <Form.Checkbox />
+                    <Button title="click me!"
+                        href="https://fullstack.edu.vn"
+                        onClick={() => console.log(Math.random())}
+                    />
                 </div>
             )
         }
