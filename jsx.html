@@ -17,13 +17,6 @@
         Có cần Javascript, Babel để dùng JSX
     4. JSX và React-DOM
     Babel: thư viện dùng để phân tích cú pháp và chuyển đổi JSX thành javascript
-
-            <ul>
-                <li>Javascript</li>
-                <li>ReactJS</li>
-            </ul>
-
-    
     -->
     <div id="root"></div>
     <script type="text/babel">
@@ -42,11 +35,24 @@
 
         const ul = <ul>
             {
-                courses.map(course => 
-                <li>{course.name}</li>
+                courses.map((course,index) => 
+                <li key={index}>{course.name}</li>
                 )
             }
         </ul>
+        const jsx = (
+            <React.Fragment>
+                <h1>Heading1</h1>
+                <h2>Heading2</h2>
+            </React.Fragment>    
+
+        )
+        const jsx1 = React.createElement(
+            React.Fragment,
+            null,
+            React.createElement('h1', null, 'Heading 1'),
+            React.createElement('h2', null, 'Heading 2'),
+        )
         ReactDOM.render(ul, document.getElementById('root'))
 
     </script>
